@@ -1,3 +1,1 @@
-Dit is de Kantine.
-
-© Ewoud van Maurik & Mathijs Lindeboom
+Dit is de Kantine. #Swag
