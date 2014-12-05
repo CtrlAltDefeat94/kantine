@@ -2,9 +2,10 @@
  * Een klasse voor artikellen die bestelt kunnen worden in de kantine.
  * 
  * @author (Ewoud && Mathijs) 
- * @version (23-11-2014)
+ * @version (05-12-2014)
  */
-public class Persoon {
+public class Persoon 
+{
     private String burgerServiceNummer;
     private String voornaam;
     private String achternaam;
@@ -13,10 +14,22 @@ public class Persoon {
     private int geboorteDag;
     private int geboorteMaand;
     private int geboorteJaar;
+    public Dienblad dienblad;
     
     /**
-	* Constructor voor een object van de klasse Persoon
-	*/
+    * Constructor voor een object van de klasse persoon 
+    */
+    public Persoon()
+    {
+      this.geboorteDag = 0;
+      this.geboorteMaand = 0;
+      this.geboorteJaar = 0;
+      this.geslacht = 'X';
+    }
+          
+    /**
+    * Constructor voor een object van de klasse Persoon
+    */ 
     public Persoon(String persoonBurgerServiceNummer, String persoonVoornaam, String persoonAchternaam, int persoonGeboorteDag, int persoonGeboorteMaand, int persoonGeboorteJaar, char persoonGeslacht)
     {
         // geef de instance variables een beginwaarde
@@ -25,54 +38,51 @@ public class Persoon {
         achternaam = persoonAchternaam;
         setGeboorteDatum(persoonGeboorteDag, persoonGeboorteMaand, persoonGeboorteJaar);
         setGeslacht(persoonGeslacht);
-    }
-
+    } 
         
     /**
-	* Methode voor het aanpassen van de BurgerServiceNummer van de persoon
-	*/	
+    * Methode voor het aanpassen van de BurgerServiceNummer van de persoon
+    */  
     public void setBurgerServiceNummer(String newBurgerServiceNummer)
     {
-        burgerServiceNummer = newBurgerServiceNummer;
-    }
-
-    /**
-	* Methode voor het aanpassen van de voornaam van de persoon
-	*/	
-    public void setVoornaam(String newVoornaam)
-    {
-        voornaam = newVoornaam;
+        this.burgerServiceNummer = newBurgerServiceNummer;
     }
     
     /**
-	* Methode voor het aanpassen van de achternaam van de persoon
-	*/	
+    * Methode voor het aanpassen van de voornaam van de persoon
+    */  
+    public void setVoornaam(String newVoornaam)
+    {
+        this.voornaam = newVoornaam;
+    }
+    
+    /**
+    * Methode voor het aanpassen van de achternaam van de persoon
+    */  
     public void setAchternaam(String newAchternaam)
     {
-        achternaam = newAchternaam;
+        this.achternaam = newAchternaam;
     }
-
+    
     /**
-	* Methode voor het aanpassen van de geboortedatum van de persoon
-	*/	
+    * Methode voor het aanpassen van de geboortedatum van de persoon
+    */  
     public void setResetGeboorteDatum()
     {
         geboorteDag = 0;
         geboorteMaand = 0;
         geboorteJaar = 0;
     }
-    
-   
+     
     /**
-	* Methode voor het aanpassen van de geboortedatum van de persoon
-	*/	
+    * Methode voor het aanpassen van de geboortedatum van de persoon
+    */  
     public void setGeboorteDatum(int persoonGeboorteDag, int persoonGeboorteMaand, int persoonGeboorteJaar)
     {
-        if(persoonGeboorteJaar > 1899 && persoonGeboorteJaar < 2101)
-        {
-        
-            switch(persoonGeboorteMaand)
-            {
+        if (persoonGeboorteJaar > 1899 && persoonGeboorteJaar < 2101)
+        {            
+            switch (persoonGeboorteMaand)
+            {                
                 case 1:
                 case 3:
                 case 5:
@@ -80,11 +90,11 @@ public class Persoon {
                 case 8:
                 case 10:
                 case 12:
-                if(persoonGeboorteDag > 0 && persoonGeboorteDag < 32) 
+                if (persoonGeboorteDag > 0 && persoonGeboorteDag < 32) 
                 {
-                    geboorteDag = persoonGeboorteDag;
-                    geboorteMaand = persoonGeboorteMaand;
-                    geboorteJaar = persoonGeboorteJaar;
+                    this.geboorteDag = persoonGeboorteDag;
+                    this.geboorteMaand = persoonGeboorteMaand;
+                    this.geboorteJaar = persoonGeboorteJaar;
                 }
                 else 
                 {
@@ -96,11 +106,11 @@ public class Persoon {
                 case 6:
                 case 9:
                 case 11:
-                if(persoonGeboorteDag > 0 && persoonGeboorteDag < 31)
+                if (persoonGeboorteDag > 0 && persoonGeboorteDag < 31)
                 {
-                    geboorteDag = persoonGeboorteDag;
-                    geboorteMaand = persoonGeboorteMaand;
-                    geboorteJaar = persoonGeboorteJaar;
+                    this.geboorteDag = persoonGeboorteDag;
+                    this.geboorteMaand = persoonGeboorteMaand;
+                    this.geboorteJaar = persoonGeboorteJaar;
                 }
                 else 
                 {
@@ -109,13 +119,13 @@ public class Persoon {
                 }
                 break;
                 case 2:
-                if((persoonGeboorteJaar % 4) == 4 && (persoonGeboorteJaar % 100) != 0 && (persoonGeboorteJaar % 400) == 0)
-                {
-                    if(persoonGeboorteDag > 1 && persoonGeboorteDag < 30)
+                if ((persoonGeboorteJaar % 4) == 4 && (persoonGeboorteJaar % 100) != 0 && (persoonGeboorteJaar % 400) == 0)
+                {                    
+                    if (persoonGeboorteDag > 1 && persoonGeboorteDag < 30)
                     {
-                        geboorteDag = persoonGeboorteDag;
-                        geboorteMaand = persoonGeboorteMaand;
-                        geboorteJaar = persoonGeboorteJaar;
+                        this.geboorteDag = persoonGeboorteDag;
+                        this.geboorteMaand = persoonGeboorteMaand;
+                        this.geboorteJaar = persoonGeboorteJaar;
                     }
                     else 
                     {
@@ -125,11 +135,11 @@ public class Persoon {
                 }
                 else 
                 {
-                    if(persoonGeboorteDag > 1 && persoonGeboorteDag < 29)
+                    if (persoonGeboorteDag > 1 && persoonGeboorteDag < 29)
                     {
-                        geboorteDag = persoonGeboorteDag;
-                        geboorteMaand = persoonGeboorteMaand;
-                        geboorteJaar = persoonGeboorteJaar;
+                        this.geboorteDag = persoonGeboorteDag;
+                        this.geboorteMaand = persoonGeboorteMaand;
+                        this.geboorteJaar = persoonGeboorteJaar;
                     }
                     else
                     {
@@ -139,36 +149,37 @@ public class Persoon {
                 }
                 break;
                 default:
-                    System.out.println("Maand is niet mogelijk..");
-                    setResetGeboorteDatum();
-                    break;
+                System.out.println("Maand is niet mogelijk..");
+                setResetGeboorteDatum();
+                break;
             }   
         }
         else
         {
-            System.out.println("Alleen jaren tussen 1900 en 2100 zijn mogelijk.");
+           System.out.println("Alleen jaren tussen 1900 en 2100 zijn mogelijk.");
+           setResetGeboorteDatum();
         }
     }
     
     /**
-	* Methode voor het aanpassen van het Geslacht van de persoon
-	*/	
+    * Methode voor het aanpassen van het Geslacht van de persoon
+    */  
     public void setGeslacht(char persoonGeslacht)
     {
-        if(persoonGeslacht == 'm' || persoonGeslacht == 'v')
+        if (persoonGeslacht == 'm' || persoonGeslacht == 'v')
         {
-            geslacht = persoonGeslacht;
+           this.geslacht = persoonGeslacht;
         }
         else
-        {
-            System.out.println("Geslacht is niet mogelijk..");
+        { 
+           this.geslacht = 'o';
+           System.out.println("Geslacht is niet mogelijk. Geslacht is nu 'onbekend'.");
         }
     }
     
-        
     /**
-	* Methode voor het afdrukken van alle gegevens
-	*/	
+    * Methode voor het afdrukken van alle gegevens
+    */  
     public void drukAf()
     {
         System.out.println("Voornaam: " + voornaam);
@@ -179,63 +190,121 @@ public class Persoon {
     }
     
     /**
-	* Methode voor het krijgen van het Geslacht van de persoon
-	*/	
+    * Methode voor het krijgen van het Geslacht van de persoon
+    */  
     public String getGeslacht()
     {
         String temp;
-        if(geslacht == 'm')
+        if(geslacht == 'm' || geslacht == 'M')
         {
-            temp = "Man";
+           temp = "Man";
         }
-        else if(geslacht == 'v')
+        else if(geslacht == 'v' || geslacht == 'V')
         {
-            temp = "Vrouw";
+           temp = "Vrouw";
         }
         else
         {
-            temp = "onbekend";
+           temp = "Onbekend";
         }
         return temp;
     }
     
     /**
-	* Methode voor het krijgen van het GeboorteDatum van de persoon
-	*/	
+    * Methode voor het krijgen van het GeboorteDatum van de persoon
+    */  
     public String getGeboorteDatum() 
     {
        String temp;
        if (geboorteDag==0 && geboorteMaand==0 && geboorteJaar==0) 
        {
            temp="Onbekend";
-        } else 
-        {
-            temp=geboorteDag+"/"+geboorteMaand+"/"+geboorteJaar;
-        }
-        return temp;
+       } 
+       else 
+       {
+           temp=geboorteDag+"/"+geboorteMaand+"/"+geboorteJaar;
+       }
+       return temp;
     }
     
     /**
-	* Methode voor het krijgen van het burgerserivenummer van de persoon
-	*/	
+    * Methode voor het krijgen van het burgerserivenummer van de persoon
+    */  
     public String getBurgerSeriveNummer()  
     {
         return burgerServiceNummer;
     }
     
     /**
-	* Methode voor het krijgen van de voornaam van de persoon
-	*/	
+    * Methode voor het krijgen van de voornaam van de persoon
+    */  
     public String getVoornaam() 
     {
         return voornaam;
     }
-    
-   /**
-	* Methode voor het krijgen van de achternaam van de persoon
-	*/	
+        
+    /**
+    * Methode voor het krijgen van de achternaam van de persoon
+    */  
     public String getAchternaam() 
     {
         return achternaam;
     }
+    
+    /**
+    *  Constructor voor het maken van een object van de persoon
+    */
+    public void pakDienblad()
+    {
+    this.dienblad = new Dienblad();
+    }
+    
+    /**
+    *  Methode voor het krijgen van de totaalprijs
+    */
+    public double getTotaalprijs()
+    {
+        double temp;
+        if(dienblad != null)
+        {
+            temp = dienblad.getTotaalPrijs();
+        }
+        else
+        {
+            temp = 0.0;
+        }
+        return temp;
+    }
+    
+    /**
+    * Methode voor het krijgen van het aantal artikelen
+    */
+    public int getAantalArtikelen()
+    {
+        int temp;
+        if(dienblad != null)
+        {
+            temp = dienblad.getAantalArtikelen();
+        }
+        else
+        {
+            temp = 0;
+        }
+        return temp;
+    }
+    
+    /**
+    * Methode voor het toevoegen van een artikel op het dienblad
+    */
+    public void pakArtikel(Artikel artikel)
+    {
+        if(dienblad != null)
+        {
+            dienblad.voegToe(artikel);
+        }
+        else
+        {
+            System.out.println("Pak een dienblad...");
+        }
+    }       
 }

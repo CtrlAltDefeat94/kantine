@@ -2,21 +2,31 @@
  * Een klasse voor artikellen die bestelt kunnen worden in de kantine.
  * 
  * @author (Ewoud && Mathijs) 
- * @version (19-11-2013)
+ * @version (05-12-2014)
  */
 public class Artikel 
-	{
-	private String naam;
-	private int prijs;
+{
+    private String naam;
+	private double prijs;
 	
 	/**
 	* Constructor voor een object van de klasse Artikel
 	*/
-	public Artikel(String artikelNaam, int artikelPrijs)
+	public Artikel(String artikelNaam, double artikelPrijs)
     {
         naam = artikelNaam;
         prijs = artikelPrijs;
     }
+	
+    /**
+    * Constructor voor een object van de klasse Artikel 
+    */
+    public Artikel()
+    {
+       naam = naam;
+       prijs = prijs;
+    }
+	
 	/**
 	* Methode voor het krijgen van de naam van dat artikel
 	*/	
@@ -24,25 +34,38 @@ public class Artikel
 	{
 		return naam;
 	}
+	
 	/**
 	* Methode voor het krijgen van de prijs van dat artikel
 	*/	
-	public int getPrijs()
+	public double getPrijs()
 	{
 		return prijs;
 	}
+	
 	/**
 	* Methode voor het aanpassen van de naam van dat artikel
 	*/	
 	public void setNaam(String newNaam)
 	{
-		naam = newNaam;
+		this.naam = newNaam;
 	}
+	
 	/**
 	* Methode voor het aanpassen van de prijs van dat artikel.
 	*/	
-	public void setPrijs(int newPrijs)
+	public void setPrijs(double newPrijs)
 	{
-		prijs = newPrijs;
+		this.prijs = newPrijs;
 	}
+	
+	/**
+    * Methode voor het afdrukken van het artikelnaam + de prijs
+    */  
+    public void drukAf()
+    {
+        System.out.println("Artikel naam: " + naam);
+        System.out.println("Prijs: " + prijs);
+    }
+	
 }
