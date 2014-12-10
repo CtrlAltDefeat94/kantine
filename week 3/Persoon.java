@@ -1,4 +1,3 @@
-import java.lang.Math;
 /**
  * Een klasse voor artikellen die bestelt kunnen worden in de kantine.
  * 
@@ -257,22 +256,22 @@ public class Persoon
     */
     public void pakDienblad(Dienblad dienblad)
     {
-    this.dienblad = new Dienblad();
+        this.dienblad=dienblad;
     }
     
     /**
     *  Methode voor het krijgen van de totaalprijs
     */
-    public int getTotaalprijs()
+    public double getTotaalprijs()
     {
-        int totaalPrijs;
+        double totaalPrijs;
         if(dienblad != null)
         {
             totaalPrijs = dienblad.getTotaalPrijs();
         }
         else
         {
-            totaalPrijs = 0;
+            totaalPrijs = 0.0;
         }
         return totaalPrijs;
     }

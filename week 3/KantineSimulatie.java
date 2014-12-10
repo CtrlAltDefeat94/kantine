@@ -1,5 +1,5 @@
 import java.util.*;
-public class KantineSimulatieNieuw 
+public class KantineSimulatie 
 {
     // kantine
     private Kantine kantine;
@@ -25,7 +25,7 @@ public class KantineSimulatieNieuw
     /**
      * Constructor
      */
-    public KantineSimulatieNieuw()
+    public KantineSimulatie()
     {
         kantine=new Kantine();
         random=new Random();
@@ -82,32 +82,26 @@ public class KantineSimulatieNieuw
      */
     public void simuleer(int dagen) 
     {
-        // for lus voor dagen
-     for(int i=0;i<dagen;i++) 
-     {
-         // bedenk hoeveel personen vandaag binnen lopen
-         int aantalPersonen=getRandomValue(MIN_ARTIKELEN_PER_PERSOON, MAX_ARTIKELEN_PER_PERSOON);
-         // laat de personen maar komen...
-         for(int j=0;j<aantalPersonen;j++) {
-             Persoon persoon = new Persoon();
-             persoon.pakDienblad(new Dienblad());
-             
-             int aantalArtikelen=getRandomValue(MIN_PERSONEN_PER_DAG,MAX_PERSONEN_PER_DAG);
-             // genereer de “artikelnummers”, dit zijn indexen
-             // van de artikelnamen array
-             int[] tePakken=getRandomArray(aantalArtikelen, 0,
-             AANTAL_ARTIKELEN-1);
-             String[] artikelen=geefArtikelNamen(tePakken);
-             kantine.loopPakSluitAan(persoon, artikelen);
-             updateArtikelVoorraad(artikelen);
+        for(int i=0;i<dagen;i++) {
+            int aantalPersonen= getRandomValue(MIN_PERSONEN_PER_DAG, MAX_PERSONEN_PER_DAG);
+            for(int j=0;j<aantalPersonen;j++) {
+                Persoon persoon = new Persoon();
+                persoon.pakDienblad(new Dienblad());
+                int[] tePakken=getRandomArray(AANTAL_ARTIKELEN, 0, AANTAL_ARTIKELEN-1);
+                String[] artikelen=geefArtikelNamen(tePakken);
+                kantine.loopPakSluitAan(persoon, artikelen);
+                updateArtikelVoorraad(artikelen);
             }
-         kantine.verwerkRijVoorKassa();
-         System.out.println("Aantal klanten: " + aantalPersonen);
-         int centen = kantine.getKassa().hoeveelheidGeldInKassa() % 100;
-         int euros = kantine.getKassa().hoeveelheidGeldInKassa() / 100;
-         System.out.println("Totaal geld: " + euros + "." + centen);
-         System.out.println("Aantal artikelen verkocht: "+ kantine.getKassa().getAantalArtikelen() + "\n");
-         kantine.getKassa().resetKassa();
+            kantine.verwerkRijVoorKassa();
+            int dag = i + 1;
+            System.out.println("Dag: " + dag + "");
+            System.out.println("Aantal klanten: " + aantalPersonen);
+            int centen = kantine.getKassa().hoeveelheidGeldInKassa() % 100;
+            int euros = kantine.getKassa().hoeveelheidGeldInKassa() / 100;
+            System.out.println("Totaal geld: " + euros + "." + centen);
+            System.out.println("Aantal artikelen verkocht: "+ kantine.getKassa().getAantalArtikelen());
+            System.out.println("");
+            kantine.getKassa().resetKassa();
         }
     }
     private void updateArtikelVoorraad(String[] artikelen)
@@ -116,7 +110,7 @@ public class KantineSimulatieNieuw
         {
             if(kantine.getKantineAanbod().getArrayList(artikel).size() < MIN_ARTIKELEN_PER_SOORT)
             {
-                kantine.getKantineAanbod().updateArtikelVoorraad(artikel, MAX_ARTIKELEN_PER_SOORT);
+                kantine.getKantineAanbod().updateArtikelVoorraad(artikel, 5000);
             }
         }
     }

@@ -8,6 +8,9 @@ public class Kantine
 {    
     private Kassa kassa;
     private KassaRij kassarij;
+    private Persoon persoon;
+    private Artikel artikel;
+    private Dienblad dienblad;
     private KantineAanbod kantineAanbod;
 
     /**
@@ -18,43 +21,25 @@ public class Kantine
         kassarij=new KassaRij();
         kassa=new Kassa(kassarij);
     }
-
-    /**
-     * In deze methode wordt een Persoon en Dienblad
-     * gemaakt en aan elkaar
-     * gekoppeld. Maak twee Artikelen aan en plaats 
-     * deze op het dienblad.   
-     * Tenslotte sluit de Persoon zich aan bij de rij 
-     * voor de kassa.
-     */
-    public void loopPakSluitAan2() 
-    {
-        Persoon persoon = new Persoon();
-        Dienblad dienblad = new Dienblad();
-        persoon.pakDienblad(dienblad);
-        Artikel artikel1 = new Artikel("Soep", 250);
-        Artikel artikel2 = new Artikel("Cola", 170);
-        kassarij.sluitAchteraan(persoon);        
-       
-        persoon.getDienblad().voegToe(artikel1);
-        persoon.getDienblad().voegToe(artikel2);
-    }
     
     /**
-     * In deze methode kiest een persoon met een dienblad
-     * de artikelen in artikelnamen
-     * @param persoon
-     * @param artikelnamen
-     */
+    * In deze methode kiest een persoon met een dienblad
+    * de artikelen in artikelnamen
+    * @param persoon
+    * @param artikelnamen
+    */
     public void loopPakSluitAan(Persoon persoon, String[] artikelnamen)
     {
-       for(int i = 0; i < artikelnamen.length; i++) 
-       {
-            Artikel artikel = kantineAanbod.getArtikel(artikelnamen[i]);
+        Artikel artikel;
+        Dienblad dienblad = persoon.getDienblad();
+        for(String artikelNaam : artikelnamen)
+        {
+            artikel = kantineAanbod.getArtikel(artikelNaam);
             persoon.getDienblad().voegToe(artikel);
-       }
+        }
+        kassarij.sluitAchteraan(persoon);
     }
-
+ 
     /**
      * Deze methode handelt de rij voor de kassa af.
      */
@@ -62,7 +47,8 @@ public class Kantine
     {
         while (kassarij.erIsEenRij() == true)
         {
-            kassa.rekenAf(kassarij.eerstePersoonInRij());
+            this.persoon = kassarij.eerstePersoonInRij();
+            kassa.rekenAf(this.persoon);
         }
     }  
     

@@ -25,10 +25,9 @@ public class Kassa
      * door een echte betaling door de persoon. 
      * @param persoon die moet afrekenen
      */
-
     public void rekenAf(Persoon persoon) 
     {
-        Iterator<Artikel> artikelen = persoon.getDienblad().getArtikelen();
+        Iterator<Artikel> artikelen = persoon.getDienblad().getArtikelIterator();
         int totaalPrijs = 0;
         int aantalArtikelen = 0;
         while(artikelen.hasNext()) {
@@ -75,9 +74,10 @@ public class Kassa
     }
     
     /**
-    * Methode om totaalprijs van artikelen op dienblad van de persoon uit te rekenen
-    * @return totaalprijs
-    */
+     * Methode voor het ophalen van het aantal artikelen die de kassas is gepasseerd,
+     * sinds de laatste keer dat de kassa is gereset.
+     * @return  Geeft het aantal artikelen die de kassa is gepasseerd weer.
+     */
     public double getTotaalPrijs(Persoon persoon)
     {
         double prijs = 0.0;
@@ -87,7 +87,7 @@ public class Kassa
         }
         else 
         {
-            Iterator<Artikel> it = persoon.getDienblad().getArtikelen();
+            Iterator<Artikel> it = persoon.getDienblad().getArtikelIterator();
             while(it.hasNext()) 
             {
                 prijs += it.next().getPrijs();
@@ -100,9 +100,9 @@ public class Kassa
    * Methode om aantal artikelen op dienblad van de persoon op te tellen
    * @return Het aantal artikelen
    */
-   public int getAantalArtikelen() 
-   {    
+       public int getAantalArtikelen()
+    {
         return aantalArtikelen;
-   }
+    }
 
 }

@@ -11,16 +11,17 @@ public class KantineAanbod
     * moeten wel gelijk zijn!
     */
     //weet niet wat ingevuld moet worden.
-    public KantineAanbod(String[] artikelnaam, int[] prijs, int[] hoeveelheid) {
+    public KantineAanbod(String[] artikelNaam, int[] prijsInCenten, int[] hoeveelheid) 
+    {
         aanbod=new HashMap<String, ArrayList<Artikel>>();
-        for(int i=0;i<artikelnaam.length;i++)
+        for(int i=0;i<artikelNaam.length;i++) 
         {
-        ArrayList<Artikel> artikelen=new ArrayList<Artikel>();
-        for(int j=0;j<hoeveelheid[i];j++)
-        {
-        artikelen.add(new Artikel(artikelnaam[i], prijs[i]));
-        }
-        aanbod.put(artikelnaam[i], artikelen);
+            ArrayList<Artikel> artikelen=new ArrayList<Artikel>();
+            for(int j=0;j<hoeveelheid[i];j++) 
+            {
+                artikelen.add(new Artikel(artikelNaam[i], prijsInCenten[i]));
+            }
+            aanbod.put(artikelNaam[i], artikelen);
         }
     }
     
@@ -28,9 +29,8 @@ public class KantineAanbod
     * Private methode om de lijst van artikelen te krijgen op basis van de
     * naam van het artikel. Retourneert null als artikel niet bestaat.
     */
-    public ArrayList<Artikel> getArrayList(String productnaam) 
-    {
-         return aanbod.get(productnaam); 
+    public ArrayList<Artikel> getArrayList(String productnaam) {
+        return aanbod.get(productnaam);
     }
     
     /**
@@ -62,27 +62,14 @@ public class KantineAanbod
     public Artikel getArtikel(String naam) {
     return getArtikel(getArrayList(naam));
     }
-        /**
-     * Deze methode geeft de voorraad weer van het gevraagde artikel.
-     * @param naam  Naam van het artikel.
-     * @return  Voorraad van het gevraagde artikel
-     */
-    public int getVoorraadArtikel(String naam)
-    {
-        return getArrayList(naam).size();
-    }
     
-    /**
-     * Deze methode vult de voorraad van het artikel weer aan.
-     * @param naam  Naam van het artikel.
-     * @param voorraad  Voorraad van het artikel
-     */
-    public void updateArtikelVoorraad(String naam, int voorraad) 
+    public void updateArtikelVoorraad(String naam, int voorraad)
     {
+        int prijs =  getArtikel(naam).getPrijs();
         ArrayList<Artikel> artikelen=new ArrayList<Artikel>();
-        for( int i= 0 ; i < voorraad; i++ )
+        for(int i= 0 ; i < voorraad; i++) 
         {
-            artikelen.add(new Artikel(naam, getArtikel(naam).getPrijs()));
+            artikelen.add(new Artikel(naam, prijs));
         }
         aanbod.put(naam , artikelen);
     }

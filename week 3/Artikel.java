@@ -14,8 +14,8 @@ public class Artikel
 	*/
 	public Artikel(String artikelNaam, int artikelPrijs)
     {
-        naam = artikelNaam;
-        prijs = artikelPrijs;
+        this.naam = artikelNaam;
+        this.prijs = artikelPrijs;
     }
 	
     /**
