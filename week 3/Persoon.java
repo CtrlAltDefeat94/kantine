@@ -33,11 +33,11 @@ public class Persoon
     public Persoon(String persoonBurgerServiceNummer, String persoonVoornaam, String persoonAchternaam, int persoonGeboorteDag, int persoonGeboorteMaand, int persoonGeboorteJaar, char persoonGeslacht)
     {
         // geef de instance variables een beginwaarde
-        burgerServiceNummer = persoonBurgerServiceNummer;
-        voornaam = persoonVoornaam;
-        achternaam = persoonAchternaam;
-        setGeboorteDatum(persoonGeboorteDag, persoonGeboorteMaand, persoonGeboorteJaar);
-        setGeslacht(persoonGeslacht);
+        this.burgerServiceNummer = persoonBurgerServiceNummer;
+        this.voornaam = persoonVoornaam;
+        this.achternaam = persoonAchternaam;
+        this.setGeboorteDatum(persoonGeboorteDag, persoonGeboorteMaand, persoonGeboorteJaar);
+        this.setGeslacht(persoonGeslacht);
     } 
         
     /**

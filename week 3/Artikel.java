@@ -14,8 +14,8 @@ public class Artikel
 	*/
 	public Artikel(String artikelNaam, double artikelPrijs)
     {
-        naam = artikelNaam;
-        prijs = artikelPrijs;
+        this.naam = artikelNaam;
+        this.prijs = artikelPrijs;
     }
 	
     /**
@@ -23,8 +23,8 @@ public class Artikel
     */
     public Artikel()
     {
-       naam = naam;
-       prijs = prijs;
+       this.naam = naam;
+       this.prijs = prijs;
     }
 	
 	/**
