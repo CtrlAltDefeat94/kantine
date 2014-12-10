@@ -30,7 +30,7 @@ public class Kassa
         double totaalPrijs = persoon.getTotaalprijs();
         int aantalArtikelen = persoon.getAantalArtikelen();
         this.aantalArtikelen = this.aantalArtikelen + aantalArtikelen;
-        hoeveelheidGeld = hoeveelheidGeld + totaalPrijs;
+        this.hoeveelheidGeld = hoeveelheidGeld + totaalPrijs ;
     }
 
     /**
