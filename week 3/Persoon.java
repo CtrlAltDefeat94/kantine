@@ -215,16 +215,16 @@ public class Persoon
     */  
     public String getGeboorteDatum() 
     {
-       String temp;
+       String geboorteDatum;
        if (geboorteDag==0 && geboorteMaand==0 && geboorteJaar==0) 
        {
-           temp="Onbekend";
+           geboorteDatum="Onbekend";
        } 
        else 
        {
-           temp=geboorteDag+"/"+geboorteMaand+"/"+geboorteJaar;
+           geboorteDatum=geboorteDag+"/"+geboorteMaand+"/"+geboorteJaar;
        }
-       return temp;
+       return geboorteDatum;
     }
     
     /**
@@ -264,16 +264,16 @@ public class Persoon
     */
     public double getTotaalprijs()
     {
-        double temp;
+        double totaalPrijs;
         if(dienblad != null)
         {
-            temp = dienblad.getTotaalPrijs();
+            totaalPrijs = dienblad.getTotaalPrijs();
         }
         else
         {
-            temp = 0.0;
+            totaalPrijs = 0.0;
         }
-        return temp;
+        return totaalPrijs;
     }
     
     /**
@@ -281,16 +281,16 @@ public class Persoon
     */
     public int getAantalArtikelen()
     {
-        int temp;
+        int aantalArtikelen;
         if(dienblad != null)
         {
-            temp = dienblad.getAantalArtikelen();
+            aantalArtikelen = dienblad.getAantalArtikelen();
         }
         else
         {
-            temp = 0;
+            aantalArtikelen = 0;
         }
-        return temp;
+        return aantalArtikelen;
     }
     
     /**
