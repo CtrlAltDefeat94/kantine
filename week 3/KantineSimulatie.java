@@ -40,6 +40,8 @@ public class KantineSimulatie
             System.out.println("Aantal artikelen verkocht: " + kantine.getKassa().aantalArtikelen());
             System.out.println("Totaal geld: " + kantine.getKassa().hoeveelheidGeldInKassa());
             kantine.getKassa().resetKassa();
+            int dag = 1+d;
+            System.out.println("dag:" + dag) ;
 
         }
     }
