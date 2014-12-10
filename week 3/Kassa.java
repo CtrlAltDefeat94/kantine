@@ -8,7 +8,6 @@ import java.util.Iterator;
 public class Kassa 
 { 
     private KassaRij kassarij;
-    private Persoon persoon;
     public int aantalArtikelen;
     public double hoeveelheidGeld;
     
@@ -28,7 +27,6 @@ public class Kassa
      */
     public void rekenAf(Persoon persoon) 
     {
-        this.persoon = persoon;
         double totaalPrijs = persoon.getTotaalprijs();
         int aantalArtikelen = persoon.getAantalArtikelen();
         this.aantalArtikelen = this.aantalArtikelen + aantalArtikelen;
