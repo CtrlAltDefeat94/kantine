@@ -1,3 +1,4 @@
+import java.lang.Math;
 /**
  * Een klasse voor artikellen die bestelt kunnen worden in de kantine.
  * 
@@ -254,7 +255,7 @@ public class Persoon
     /**
     *  Constructor voor het maken van een object van de persoon
     */
-    public void pakDienblad()
+    public void pakDienblad(Dienblad dienblad)
     {
     this.dienblad = new Dienblad();
     }
@@ -262,16 +263,16 @@ public class Persoon
     /**
     *  Methode voor het krijgen van de totaalprijs
     */
-    public double getTotaalprijs()
+    public int getTotaalprijs()
     {
-        double totaalPrijs;
+        int totaalPrijs;
         if(dienblad != null)
         {
             totaalPrijs = dienblad.getTotaalPrijs();
         }
         else
         {
-            totaalPrijs = 0.0;
+            totaalPrijs = 0;
         }
         return totaalPrijs;
     }

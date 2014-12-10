@@ -41,9 +41,9 @@ public class Dienblad
     * op dienblad uit te rekenen
     * @return De totaalprijs
     */
-    public double getTotaalPrijs() 
+    public int getTotaalPrijs() 
     {
-        double totaal = 0;
+        int totaal = 0;
         int index = 0;
         while (index < artikelen.size())
         {
@@ -57,7 +57,7 @@ public class Dienblad
     * Getter voor een iterator voor de stack artikelen
     * @return iterator voor artikelen
     */
-    public Iterator<Artikel> getArtikelIterator()
+    public Iterator<Artikel> getArtikelen()
     {
         return artikelen.iterator();
     }

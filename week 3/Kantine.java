@@ -8,9 +8,6 @@ public class Kantine
 {    
     private Kassa kassa;
     private KassaRij kassarij;
-    private Persoon persoon;
-    private Artikel artikel;
-    private Dienblad dienblad;
     private KantineAanbod kantineAanbod;
 
     /**
@@ -30,13 +27,13 @@ public class Kantine
      * Tenslotte sluit de Persoon zich aan bij de rij 
      * voor de kassa.
      */
-    public void loopPakSluitAan() 
+    public void loopPakSluitAan2() 
     {
-        persoon = new Persoon();
-        dienblad = new Dienblad();
-        persoon.pakDienblad();
-        Artikel artikel1 = new Artikel("Soep", 2.50);
-        Artikel artikel2 = new Artikel("Cola", 1.70);
+        Persoon persoon = new Persoon();
+        Dienblad dienblad = new Dienblad();
+        persoon.pakDienblad(dienblad);
+        Artikel artikel1 = new Artikel("Soep", 250);
+        Artikel artikel2 = new Artikel("Cola", 170);
         kassarij.sluitAchteraan(persoon);        
        
         persoon.getDienblad().voegToe(artikel1);
@@ -44,21 +41,20 @@ public class Kantine
     }
     
     /**
-    * In deze methode kiest een persoon met een dienblad
-    * de artikelen in artikelnamen
-    * @param persoon
-    * @param artikelnamen
-    */
+     * In deze methode kiest een persoon met een dienblad
+     * de artikelen in artikelnamen
+     * @param persoon
+     * @param artikelnamen
+     */
     public void loopPakSluitAan(Persoon persoon, String[] artikelnamen)
     {
        for(int i = 0; i < artikelnamen.length; i++) 
        {
             Artikel artikel = kantineAanbod.getArtikel(artikelnamen[i]);
             persoon.getDienblad().voegToe(artikel);
-       
        }
     }
- 
+
     /**
      * Deze methode handelt de rij voor de kassa af.
      */
@@ -66,8 +62,7 @@ public class Kantine
     {
         while (kassarij.erIsEenRij() == true)
         {
-            this.persoon = kassarij.eerstePersoonInRij();
-            kassa.rekenAf(this.persoon);
+            kassa.rekenAf(kassarij.eerstePersoonInRij());
         }
     }  
     
@@ -94,9 +89,9 @@ public class Kantine
     * Setter voor kantine aanbod
     * @param kantine aanbod object
     */
-    public void setKantineAanbod(KantineAanbod kantineAanbod)
+    public void setKantineAanbod(String[] artikelnaam, int[] prijsInCenten, int[] hoeveelheid)
     {
-       this.kantineAanbod = kantineAanbod;
-    }  
+        this.kantineAanbod = new KantineAanbod(artikelnaam, prijsInCenten, hoeveelheid);
+    }
 
 }

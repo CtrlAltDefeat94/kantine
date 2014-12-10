@@ -7,15 +7,15 @@
 public class Artikel 
 {
     private String naam;
-	private double prijs;
+	private int prijs;
 	
 	/**
 	* Constructor voor een object van de klasse Artikel
 	*/
-	public Artikel(String artikelNaam, double artikelPrijs)
+	public Artikel(String artikelNaam, int artikelPrijs)
     {
-        this.naam = artikelNaam;
-        this.prijs = artikelPrijs;
+        naam = artikelNaam;
+        prijs = artikelPrijs;
     }
 	
     /**
@@ -38,7 +38,7 @@ public class Artikel
 	/**
 	* Methode voor het krijgen van de prijs van dat artikel
 	*/	
-	public double getPrijs()
+	public int getPrijs()
 	{
 		return prijs;
 	}
@@ -54,7 +54,7 @@ public class Artikel
 	/**
 	* Methode voor het aanpassen van de prijs van dat artikel.
 	*/	
-	public void setPrijs(double newPrijs)
+	public void setPrijs(int newPrijs)
 	{
 		this.prijs = newPrijs;
 	}
