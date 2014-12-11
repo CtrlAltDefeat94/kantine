@@ -16,4 +16,5 @@ comment4.target=void\ simuleer(int)
 comment4.text=\r\n\ Deze\ methode\ simuleert\ een\ aantal\ dagen\ in\ het\r\n\ verloop\ van\ de\ kantine\r\n\ @param\ dagen\r\n
 comment5.params=artikelen
 comment5.target=void\ updateArtikelVoorraad(java.lang.String[])
+comment5.text=\r\n\ Methode\ voor\ het\ updaten\ van\ de\ voorraad\r\n
 numComments=6

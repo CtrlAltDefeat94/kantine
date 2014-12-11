@@ -22,6 +22,7 @@ public class KantineSimulatie
     // minimum en maximum artikelen per persoon
     private static final int MIN_ARTIKELEN_PER_PERSOON=1;
     private static final int MAX_ARTIKELEN_PER_PERSOON=4;
+    
     /**
      * Constructor
      */
@@ -77,6 +78,7 @@ public class KantineSimulatie
         }
         return artikelen;
     }
+    
     /**
      * Deze methode simuleert een aantal dagen in het
      * verloop van de kantine
@@ -106,6 +108,10 @@ public class KantineSimulatie
             kantine.getKassa().resetKassa();
         }
     }
+    
+    /**
+     * Methode voor het updaten van de voorraad
+     */
     private void updateArtikelVoorraad(String[] artikelen)
     {
         for(String artikel : artikelen)
