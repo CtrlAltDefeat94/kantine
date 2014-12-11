@@ -2,7 +2,7 @@
  * Een klasse voor artikellen die bestelt kunnen worden in de kantine.
  * 
  * @author (Ewoud && Mathijs) 
- * @version (05-12-2014)
+ * @version (11-12-2014)
  */
 public class Persoon 
 {
@@ -17,8 +17,8 @@ public class Persoon
     public Dienblad dienblad;
     
     /**
-    * Constructor voor een object van de klasse persoon 
-    */
+     * Parameterloze constructor voor een object van de klasse Persoon
+     */
     public Persoon()
     {
       this.geboorteDag = 0;
@@ -28,8 +28,15 @@ public class Persoon
     }
           
     /**
-    * Constructor voor een object van de klasse Persoon
-    */ 
+     * Constructor voor een object van de klasse Persoon.
+     * @param persoonBurgerServiceNummer Dit is het burgerservicenummer van desbetreffende persoon.
+     * @param persoonVoornaam Dit is de voornaam van desbetreffende persoon
+     * @param persoonAchternaam Dit is de achternaam van desbetreffende persoon
+     * @param persoonGeboorteDag Dit is de Geboortedag van desbetreffende persoon
+     * @param persoonGeboorteMaand Dit is de Geboortemaand van desbetreffende persoon
+     * @param persoonGeboorteJaar Dit is het Geboortejaar van desbetreffende persoon
+     * @param persoonGeslacht Dit is het geslacht van desbetreffende persoon
+     */
     public Persoon(String persoonBurgerServiceNummer, String persoonVoornaam, String persoonAchternaam, int persoonGeboorteDag, int persoonGeboorteMaand, int persoonGeboorteJaar, char persoonGeslacht)
     {
         // geef de instance variables een beginwaarde
@@ -41,24 +48,28 @@ public class Persoon
     } 
         
     /**
-    * Methode voor het aanpassen van de BurgerServiceNummer van de persoon
-    */  
+     * Methode voor het aanpassen van het burgerservicenummer.
+     * @param newBurgerServiceNummer Dit is het burgerservicenummer van desbetreffende persoon.
+     * 
+     */
     public void setBurgerServiceNummer(String newBurgerServiceNummer)
     {
         this.burgerServiceNummer = newBurgerServiceNummer;
     }
     
     /**
-    * Methode voor het aanpassen van de voornaam van de persoon
-    */  
+     * Methode voor het aanpassen van de voornaam.
+     * @param newVoornaam    Dit is de voornaam van desbetreffende persoon.
+     */ 
     public void setVoornaam(String newVoornaam)
     {
         this.voornaam = newVoornaam;
     }
     
     /**
-    * Methode voor het aanpassen van de achternaam van de persoon
-    */  
+     * Methode voor het aanpassen van de achternaam.
+     * @param newAchternaam    Dit is de achternaam van desbetreffende persoon.
+     */
     public void setAchternaam(String newAchternaam)
     {
         this.achternaam = newAchternaam;
@@ -75,8 +86,11 @@ public class Persoon
     }
      
     /**
-    * Methode voor het aanpassen van de geboortedatum van de persoon
-    */  
+     * Methode voor het aanpassen van de geboortedatum.
+     * @param persoonGeboorteDag Dit is de geboortedag van desbetreffende persoon.
+     * @param persoonGeboorteMaand Dit is de geboortemaand van desbetreffende persoon.
+     * @param persoonGeboorteJaar Dit is de geboortejaar van desbetreffende persoon.
+     */ 
     public void setGeboorteDatum(int persoonGeboorteDag, int persoonGeboorteMaand, int persoonGeboorteJaar)
     {
         if (persoonGeboorteJaar > 1899 && persoonGeboorteJaar < 2101)
@@ -163,6 +177,7 @@ public class Persoon
     
     /**
     * Methode voor het aanpassen van het Geslacht van de persoon
+    * 
     */  
     public void setGeslacht(char persoonGeslacht)
     {
@@ -179,6 +194,7 @@ public class Persoon
     
     /**
     * Methode voor het afdrukken van alle gegevens
+    * 
     */  
     public void drukAf()
     {
@@ -301,7 +317,4 @@ public class Persoon
     {
          return dienblad;
     }
-
-    
-    
 }

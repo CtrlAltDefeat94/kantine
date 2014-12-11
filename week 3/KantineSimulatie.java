@@ -32,6 +32,7 @@ public class KantineSimulatie
         int[] hoeveelheden=getRandomArray(AANTAL_ARTIKELEN,MIN_ARTIKELEN_PER_SOORT, MAX_ARTIKELEN_PER_SOORT);
         kantine.setKantineAanbod(artikelnamen, artikelprijzen, hoeveelheden);
     }
+    
     /**
      * Methode om een array van random getallen liggend tussen min en max
      * van de gegeven lengte te genereren
@@ -60,6 +61,7 @@ public class KantineSimulatie
     {
         return random.nextInt(max-min+1)+min;
     }
+    
     /**
      * Methode om op basis van een array van indexen voor de array
      * artikelnamen de bijhorende array van artikelnamen te maken
@@ -108,9 +110,11 @@ public class KantineSimulatie
     {
         for(String artikel : artikelen)
         {
+            // Check of voorraad onder minimum voorraad ligt
             if(kantine.getKantineAanbod().getArrayList(artikel).size() < MIN_ARTIKELEN_PER_SOORT)
             {
-                kantine.getKantineAanbod().updateArtikelVoorraad(artikel, 5000);
+                // Verhoog de voorraad aan in KantineAanbod 
+                kantine.getKantineAanbod().updateArtikelVoorraad(artikel, MIN_ARTIKELEN_PER_SOORT);
             }
         }
     }
