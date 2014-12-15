@@ -1,0 +1,81 @@
+import java.util.*;
+public class KantineAanbod 
+{
+    // interne opslag voorraad
+    private HashMap<String, ArrayList<Artikel>> aanbod;
+
+    /**
+     * Constructor. Het eerste argument is een lijst met artikelnamen,
+     * het tweede argument is een lijst met prijzen en het derde argument
+     * is een lijst met hoeveelheden. Let op: de dimensies van de drie arrays
+     * moeten wel gelijk zijn!
+     */ 
+    public KantineAanbod(String[] artikelNaam, int[] prijsInCenten, int[] hoeveelheid) 
+    {
+        aanbod=new HashMap<String, ArrayList<Artikel>>();
+        for(int i=0;i<artikelNaam.length;i++) 
+        {
+            ArrayList<Artikel> artikelen=new ArrayList<Artikel>();
+            for(int j=0;j<hoeveelheid[i];j++) 
+            {
+                artikelen.add(new Artikel(artikelNaam[i], prijsInCenten[i]));
+            }
+            aanbod.put(artikelNaam[i], artikelen);
+        }
+    }
+    
+    /**
+     * Private methode om de lijst van artikelen te krijgen op basis van de
+     * naam van het artikel. Retourneert null als artikel niet bestaat.
+     */
+    public ArrayList<Artikel> getArrayList(String productnaam) {
+        return aanbod.get(productnaam);
+    }
+    
+    /**
+     * Private methode om een Artikel van de stapel artikelen af te pakken.
+     * Retourneert null als de stapel leeg is.
+     */
+    private Artikel getArtikel(ArrayList<Artikel> stapel) {
+        if (stapel==null) {
+        return null;
+        }
+        if (stapel.size()==0)
+        {
+        return null;
+        }
+        else
+        {
+        Artikel a=stapel.get(0);
+        stapel.remove(0);
+        return a;
+        }
+    }
+    
+    /**
+     * Publieke methode om een artikel via naam van de stapel te pakken.
+     * Retouneert null als artikel niet bestaat of niet op voorraad is.
+     * @param naam (van artikel)
+     * @return artikel (of null)
+     */
+    public Artikel getArtikel(String naam) 
+    {
+        return getArtikel(getArrayList(naam));
+    }
+    
+    public void updateArtikelVoorraad(String naam, int voorraad)
+    {
+        // vraag de prijs van het artikel op
+        int prijs =  getArtikel(naam).getPrijs();
+        // Maak een arraylist voor artikel
+        ArrayList<Artikel> artikelen=new ArrayList<Artikel>();
+        // Verhoog de voorraad tot gegeven getal
+        for(int i= 0 ; i < voorraad; i++) 
+        {
+            // Voeg artikel toe aan de arraylist
+            artikelen.add(new Artikel(naam, prijs));
+        }
+        // Zet deze artikelen op de HashMap aanbod
+        aanbod.put(naam , artikelen);
+    }
+}

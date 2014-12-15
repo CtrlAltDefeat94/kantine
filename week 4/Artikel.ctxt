@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.params=artikelNaam\ artikelPrijs
+comment0.target=Artikel(java.lang.String,\ int)
+comment0.text=\r\n\ Constructor\ voor\ een\ object\ van\ de\ klasse\ Artikel\r\n
+comment1.params=
+comment1.target=Artikel()
+comment1.text=\r\n\ Constructor\ voor\ een\ object\ van\ de\ klasse\ Artikel\ \r\n
+comment2.params=
+comment2.target=java.lang.String\ getNaam()
+comment2.text=\r\n\ Methode\ voor\ het\ krijgen\ van\ de\ naam\ van\ dat\ artikel\r\n
+comment3.params=
+comment3.target=int\ getPrijs()
+comment3.text=\r\n\ Methode\ voor\ het\ krijgen\ van\ de\ prijs\ van\ dat\ artikel\r\n
+comment4.params=newNaam
+comment4.target=void\ setNaam(java.lang.String)
+comment4.text=\r\n\ Methode\ voor\ het\ aanpassen\ van\ de\ naam\ van\ dat\ artikel\r\n
+comment5.params=newPrijs
+comment5.target=void\ setPrijs(int)
+comment5.text=\r\n\ Methode\ voor\ het\ aanpassen\ van\ de\ prijs\ van\ dat\ artikel.\r\n
+comment6.params=
+comment6.target=void\ drukAf()
+comment6.text=\r\n\ Methode\ voor\ het\ afdrukken\ van\ het\ artikelnaam\ en\ de\ prijs\r\n
+numComments=7
